@@ -6,12 +6,22 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "await": "^0.2.6",
+    "base-64": "^0.1.0",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^3.4.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
-    "express": "~4.16.0",
+    "express": "^4.16.4",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
-    "mysql": "^2.17.1"
+    "mysql": "^2.17.1",
+    "request": "^2.88.0",
+    "util": "^0.11.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
   }
 }

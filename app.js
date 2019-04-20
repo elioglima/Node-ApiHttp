@@ -4,7 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./modules/database');
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -20,8 +22,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// rotas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/usuarios', require('./routes/usuarios'));
+app.use('/bots', require('./routes/bots'));
+
+// api do bot
+app.use('/bots/api/acesso/auth', require('./routes/bots/api/auth_app'));
+app.use('/bots/api/mensagens', require('./routes/bots/api/lista_mensagens'));
+app.use('/bots/api/mensagens/enviar', require('./routes/bots/api/recebe_mensagem'));
+
+//configurando o body parser para pegar POSTS mais tarde
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -40,3 +54,12 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+// var postTest = require('./ClientHttp/postTest');
+// async function Thread1() {  
+//   await delay(1000);     
+//   postTest.executa();    
+//   Thread1();
+// }
+
+// Thread1();
