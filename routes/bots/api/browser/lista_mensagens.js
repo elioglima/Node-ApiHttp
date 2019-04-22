@@ -1,12 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var pool = require('../../../configs/priv_database.js');
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
     
     var UID = req.body.C1;
-    var token = require('../../../libs/token');
+    var token = require('../../../../libs/token');
     token = token.decodificar(req.body);
     
     if (token.Status != 200) {
@@ -16,9 +15,8 @@ router.post('/', function(req, res, next) {
         });       
     }
 
-    console.log('debug', token);
-
-    var pool = require('../../../configs/priv_database.js');
+    console.log('debug', token);    
+    var pool = require('../../../../configs/priv_database.js');
     
     var sSQL = 'select id, data, mensagem, resposta  from boex_conversa';    
     sSQL += ' where identificador = ' + "'" + token.IDT + "'";

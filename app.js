@@ -29,9 +29,9 @@ app.use('/usuarios', require('./routes/usuarios'));
 app.use('/bots', require('./routes/bots'));
 
 // api do bot
-app.use('/bots/api/acesso/auth', require('./routes/bots/api/auth_app'));
-app.use('/bots/api/mensagens', require('./routes/bots/api/lista_mensagens'));
-app.use('/bots/api/mensagens/enviar', require('./routes/bots/api/recebe_mensagem'));
+app.use('/bots/api/browser/acesso/auth', require('./routes/bots/api/browser/auth_app'));
+app.use('/bots/api/browser/mensagens', require('./routes/bots/api/browser/lista_mensagens'));
+app.use('/bots/api/browser/mensagens/enviar', require('./routes/bots/api/browser/recebe_mensagem'));
 
 //configurando o body parser para pegar POSTS mais tarde
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -36,7 +36,7 @@ var getvalhjb=function() {
 
 
 var ExibeMensagens = function() {  
-    $.ajax({url:'/bots/api/mensagens',type:'post',dataType:'json',contentType:'application/json',
+    $.ajax({url:'/bots/api/browser/mensagens',type:'post',dataType:'json',contentType:'application/json',
     data: JSON.stringify(getvalhjb())
     ,success: function (data) {
       console.log('retorno mensagens', data);
@@ -60,7 +60,7 @@ var ExibeMensagens = function() {
 };
 
 var Autenticar = function() {  
-    $.ajax({url:'/bots/api/acesso/auth',type:'post',dataType:'json',contentType:'application/json',
+    $.ajax({url:'/bots/api/browser/acesso/auth',type:'post',dataType:'json',contentType:'application/json',
     data: JSON.stringify({CHVA:atchva(),DVS:atdvs(),CDE:1,TPI:5001,IDT:'11952550331'})
     ,success: function (data) {console.log(data); clearh('idmsgalert');setvalhjb(data.Status, data.A1.B1, data.A1.B2, data.A1.B3.B31, data.A1.B3.B32,data.A1.B3.B33,data.A1.B3.B34,data.A1.B3.B35,data.A1.B3.B36,data.A1.B4); ExibeMensagens();}
     ,error:function(data){setvalh('idmsgalert',getalertDanger(data.Response));setvalhjb(data.Status,'','','','','','','','','');}
@@ -68,7 +68,7 @@ var Autenticar = function() {
 };
 
 var EnviaMensagem = function() {  
-  $.ajax({url:'/bots/api/mensagens/enviar',type:'post',dataType:'json',contentType:'application/json',
+  $.ajax({url:'/bots/api/browser/mensagens/enviar',type:'post',dataType:'json',contentType:'application/json',
     data: JSON.stringify({CHVA:atchva(),DVS:atdvs(),CDE:1,TPI:5001,IDT:'11952550331'})
     ,success: function (data) {      
       $('#mensagem_retorno_base').append(data);
