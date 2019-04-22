@@ -1,5 +1,12 @@
 'use strict';
 
+module.exports.ifthen = (c, t, f) => {
+    if (c) 
+        return t;
+    
+    return f;
+};  
+
 module.exports.formatLeft = (input, size, character) => {
     var texto = input;
     var sizeEnd = size-input.toString().trim().length;
