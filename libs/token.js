@@ -6,13 +6,14 @@ const CHVA = 'Q0hBVkVBVVRIRU5USUNBQ0FP';
 var fdate  = require('./fn_date');
 var fstring  = require('./fn_string');
 var fint  = require('./fn_int');
-var base64 = require('base-64');
 
 module.exports.CHVA = CHVA; 
 
 
 
 var keygen = (client) => {
+
+    var base64 = require('base-64');
 
     if(!client.hasOwnProperty('CHVA')) 
         return {Status: 5001, Response:"Authenticação não autorizada."};
@@ -74,7 +75,7 @@ var keygen = (client) => {
     var A6 = fstring.formatLeft(client.CDE, 4, '0');
     var A7 = client.TPI;
     var A8 = client.IDT;
-    console.log(client);
+    // console.log(client);
 
     // P3 - DATA VALIDADE TOKEN
     var data_validade = fdate.adds(data_hoje,'minute',30);
@@ -147,6 +148,7 @@ module.exports.keygen = keygen;
 
 module.exports.decodificar = (client) => {    
 
+    var base64 = require('base-64');
     var Bloco1 = base64.decode(client.B1);
     var Bloco2 = base64.decode(client.B2);          
     
@@ -235,6 +237,7 @@ module.exports.decodificar = (client) => {
 }
 
 module.exports.validacao = (token) => {
+
  
     var data_hoje = fdate.NowToDHM();;   
 

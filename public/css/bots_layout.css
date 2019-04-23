@@ -1,2 +1,4 @@
 #tmRelogio { font-family: 'Courier New', Courier, monospace; }
-#mensagem_retorno { height: 350px; overflow-x: hidden; overflow-y: scroll; overscroll-behavior: contain; }
+#mensagem_retorno { height: 350px; overflow-x: hidden; overflow-y: scroll; overscroll-behavior: contain; margin: 0 0 5px 0; }
+.bot_msg_cliente { color: cadetblue; }
+.bot_msg_servidor { color: blueviolet; }
