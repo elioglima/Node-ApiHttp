@@ -38,13 +38,12 @@ var getvalhjb=function() {
 var ExibeMensagens = function() {  
     $.ajax({url:'/bots/api/browser/mensagens',type:'post',dataType:'json',contentType:'application/json',
     data: JSON.stringify(getvalhjb())
-    ,success: function (data) {
-      console.log('retorno mensagens', data);
+    ,success: function (data) {      
       $.each( data.Rows, function( key, value ) {
-        var html  = '<p>' + value.mensagem + '</p>';
+        var html  = '<p class="bot_msg_cliente">' + value.mensagem + '</p>';
         $('#mensagem_retorno_base').append(html);
 
-        var html  = '<p>' + value.resposta + '</p>';
+        var html  = '<p class="bot_msg_servidor">' + value.resposta + '</p>';
         $('#mensagem_retorno_base').append(html);
       });
 
@@ -62,23 +61,25 @@ var ExibeMensagens = function() {
 var Autenticar = function() {  
     $.ajax({url:'/bots/api/browser/acesso/auth',type:'post',dataType:'json',contentType:'application/json',
     data: JSON.stringify({CHVA:atchva(),DVS:atdvs(),CDE:1,TPI:5001,IDT:'11952550331'})
-    ,success: function (data) {console.log(data); clearh('idmsgalert');setvalhjb(data.Status, data.A1.B1, data.A1.B2, data.A1.B3.B31, data.A1.B3.B32,data.A1.B3.B33,data.A1.B3.B34,data.A1.B3.B35,data.A1.B3.B36,data.A1.B4); ExibeMensagens();}
+    ,success: function (data) { clearh('idmsgalert');setvalhjb(data.Status, data.A1.B1, data.A1.B2, data.A1.B3.B31, data.A1.B3.B32,data.A1.B3.B33,data.A1.B3.B34,data.A1.B3.B35,data.A1.B3.B36,data.A1.B4); ExibeMensagens();}
     ,error:function(data){setvalh('idmsgalert',getalertDanger(data.Response));setvalhjb(data.Status,'','','','','','','','','');}
   });
 };
 
 var EnviaMensagem = function() {  
   $.ajax({url:'/bots/api/browser/mensagens/enviar',type:'post',dataType:'json',contentType:'application/json',
-    data: JSON.stringify({CHVA:atchva(),DVS:atdvs(),CDE:1,TPI:5001,IDT:'11952550331'})
+    data: JSON.stringify({Token:getvalhjb(), Msg:$('#mensagem_enviar').val()})
     ,success: function (data) {      
-      $('#mensagem_retorno_base').append(data);
+      if (!data.hasOwnProperty('Status')) {
+        if (data.Status == 200) { ExibeMensagens(); }; 
+      };
     }
     ,error:function(data){
-      
+      console.log(data);
     }
   });
 
-  ExibeMensagens();
+  
 };
 
 

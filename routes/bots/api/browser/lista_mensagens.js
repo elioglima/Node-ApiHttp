@@ -15,7 +15,7 @@ router.post('/', function(req, res, next) {
         });       
     }
 
-    console.log('debug', token);    
+    // console.log('debug', token);    
     var pool = require('../../../../configs/priv_database.js');
     
     var sSQL = 'select id, data, mensagem, resposta  from boex_conversa';    

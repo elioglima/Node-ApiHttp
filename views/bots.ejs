@@ -1,17 +1,10 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title><%= title %></title>
-    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap-theme.min.css">
-    <link href="libs/bootstrap/css/blog.css" rel="stylesheet">
-    <link href="css/alhch.css" rel="stylesheet">
-    <link href="css/bots_layout.css" rel="stylesheet">
-    
+  <head>    
+    <% include ./../templates/header.ejs %>
+
   </head>
+
   <body>      
       <span id="A1B1"></span>
       <span id="A1B2"></span>
@@ -23,7 +16,6 @@
       <span id="A1B36"></span>
       <span id="A1B4"></span>
       <span id="MSGIDLAST">-1</span>
-
       <div class="blog-masthead">
               
           <div class="container">
@@ -75,8 +67,8 @@
                 <div class="sidebar-module">
                   <h4>Ferramentas</h4>
                   <ol class="list-unstyled">
-                    <li><a href="#">Limpar Todas Mensagens</a></li>
-                    <li><a href="#">Limpar Ultima Mensagem</a></li>
+                    <li><a href="#">Analytic Tools</a></li>
+                    <li><a href="#">Clear Menssages</a></li>
                   </ol>
                 </div>
                 <div class="sidebar-module">
@@ -100,11 +92,6 @@
             </footer>
     
 
-    <script src="libs/jquery/jquery.3.4.0.js"></script>
-    <script src="libs/jquery/jquery.base64.js"></script>
-    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-    <script src="libs/bootstrap/js/ie-emulation-modes-warning.js"></script>
-    <script src="js/bots.js"></script>
-
+          <% include ./../templates/footer_body.ejs %>
   </body>
 </html>
