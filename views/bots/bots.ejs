@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>    
+    <% include ./../../templates/header.ejs %>
+  </head>
+  <body>      
+    <span id="A1B1"></span>
+    <span id="A1B2"></span>
+    <span id="A1B31"></span>
+    <span id="A1B32"></span>
+    <span id="A1B33"></span>
+    <span id="A1B34"></span>
+    <span id="A1B35"></span>
+    <span id="A1B36"></span>
+    <span id="A1B4"></span>
+    <span id="MSGIDLAST">-1</span>
+    <div class="blog-masthead">              
+      <div class="container">
+        <nav class="blog-nav">
+            <a class="blog-nav-item" href="/">Inicio</a>
+            <a class="blog-nav-item active" href="#">Teste do Bot</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">           
+      <div class="blog-header">
+        <h1 class="blog-title">Asistente Virtual</h1>
+        <p class="lead blog-description">Test Driven Development official para bot</p>
+        <div id="idmsgalert"></div>
+      </div>
+    
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+              <div class="blog-post">
+                <h2 class="blog-post-title">Conversas</h2>
+                <p class="blog-post-meta">Abril de 2019 - <a href="#">Maxtime</a></p>
+    
+                <p>Testando as mensagens direto pela api do assistente virtual.</p>
+                <hr>
+                <div id="mensagem_retorno"><div id="mensagem_retorno_base"></div></div>
+                <div class="row">
+                    <div class="col-lg-12">
+                      <div class="input-group">
+                        <input type="text" id="mensagem_enviar" name="mensagem_enviar" class="form-control" placeholder="digite aqui a mensagem">
+                        <span class="input-group-btn">
+                          <button id="btenviar" class="btn btn-default" type="button">Enviar</button>
+                        </span>
+                      </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+              </div><!-- /.blog-post -->
+              
+              <div class="blog-post">                      
+                  
+            </div><!-- /.row -->      
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+              <div class="sidebar-module sidebar-module-inset">
+                <h4 id="statusconexao">Offiline</h4>
+                <p id="tmRelogio"></p>
+              </div>
+              <div class="sidebar-module">
+                <h4>Ferramentas</h4>
+                <ol class="list-unstyled">
+                  <li><a href="/bots/analytictools">Analytic Tools</a></li>
+                  <li><a href="#">Clear Menssages</a></li>
+                </ol>
+              </div>
+              <div class="sidebar-module">
+                <h4>Documentação</h4>
+                <ol class="list-unstyled">
+                  <li><a href="#">Teste de Bots</a></li>
+                  <li><a href="#">API</a></li>
+                </ol>
+              </div>
+        </div><!-- /.blog-sidebar -->
+    
+      </div><!-- /.row -->
+    
+    </div>
+
+    <footer class="blog-footer">              
+      <p>Desenvolvido por <a href="https://maxtime.info/">Maxtime</a>.</p>
+      <p><a href="#">Ir para Inicio</a></p>
+    </footer>
+    <% include ./../../templates/footer_body.ejs %>
+  </body>
+</html>

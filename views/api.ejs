@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>    
+    <% include ./../templates/header.ejs %>
+  </head>
+  <body>      
+    <span id="A1B1"></span>
+    <span id="A1B2"></span>
+    <span id="A1B31"></span>
+    <span id="A1B32"></span>
+    <span id="A1B33"></span>
+    <span id="A1B34"></span>
+    <span id="A1B35"></span>
+    <span id="A1B36"></span>
+    <span id="A1B4"></span>
+    <span id="MSGIDLAST">-1</span>
+    <div class="blog-masthead">              
+      <div class="container">
+        <nav class="blog-nav">
+            <a class="blog-nav-item " href="/">Inicio</a>
+            <a class="blog-nav-item active" href="#">API</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">           
+      <div class="blog-header">
+        <p class="lead blog-description">API do Web Services</p>
+        <div id="idmsgalert"></div>
+      </div>
+    
+      <div class="row">
+        <div class="col-sm-8 blog-">
+            <p>
+                <b>Descrição: </b>Tools de testes de mensagens do bot.
+                <br><b>URL: </b><a href="/bots">/bots</a>
+            </p>
+            <hr>
+
+            <p>
+              <b>Descrição: </b>Autenticação da Tools do browser de testes.
+              <br><b>URL: </b>/bots/api/browser/auth_app
+            </p>
+            <hr>
+            <p>
+                <b>Descrição: </b>API de envio de mensagens da Tools do browser de testes.
+                <br><b>URL: </b>/bots/api/browser/lista_mensagens
+              </p>
+              <hr>                              
+
+              <p>
+                  <b>Descrição: </b>API de listar as mensagens da Tools do browser de testes.
+                  <br><b>URL: </b>/bots/api/browser/recebe_mensagem
+                </p>
+                <hr>                              
+        </div><!-- /.blog-main -->
+
+       
+      </div><!-- /.row -->
+    
+    </div>
+
+    <% include ./../templates/footer_body.ejs %>
+  </body>
+</html>

@@ -1,3 +1,49 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!doctype html>
+<html lang="en">
+  <head>    
+    <% include ./../templates/header.ejs %>
+  </head>
+  <body>      
+    <span id="A1B1"></span>
+    <span id="A1B2"></span>
+    <span id="A1B31"></span>
+    <span id="A1B32"></span>
+    <span id="A1B33"></span>
+    <span id="A1B34"></span>
+    <span id="A1B35"></span>
+    <span id="A1B36"></span>
+    <span id="A1B4"></span>
+    <span id="MSGIDLAST">-1</span>
+    <div class="blog-masthead">              
+      <div class="container">
+        <nav class="blog-nav">
+            <a class="blog-nav-item " href="/">Inicio</a>
+            <a class="blog-nav-item active" href="#">Erro</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">           
+      <div class="blog-header">
+        <p class="lead blog-description"><%= Retorno.Response %></p>
+        <div id="idmsgalert"></div>
+      </div>
+    
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+              <div class="blog-post">
+                <h2><%= Retorno.Mensagem %></h2>
+                <hr>
+              <div class="blog-post">                      
+                  
+            </div><!-- /.row -->      
+        </div><!-- /.blog-main -->
+
+       
+      </div><!-- /.row -->
+    
+    </div>
+
+    <% include ./../templates/footer_body.ejs %>
+  </body>
+</html>

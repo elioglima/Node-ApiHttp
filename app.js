@@ -6,10 +6,6 @@ var logger = require('morgan');
 
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
 var app = express();
 
 // view engine setup
@@ -23,15 +19,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // rotas
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/usuarios', require('./routes/usuarios'));
-app.use('/bots', require('./routes/bots'));
+app.use('/', require('./routes/index'));
+app.use('/api', require('./routes/api'));
+app.use('/bots', require('./routes/bots/bots'));
+app.use('/bots/analytictools', require('./routes/bots/analytictools'));
 
 // api do bot
 app.use('/bots/api/browser/acesso/auth', require('./routes/bots/api/browser/auth_app'));
 app.use('/bots/api/browser/mensagens', require('./routes/bots/api/browser/lista_mensagens'));
 app.use('/bots/api/browser/mensagens/enviar', require('./routes/bots/api/browser/recebe_mensagem'));
+
 
 //configurando o body parser para pegar POSTS mais tarde
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -49,8 +46,22 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
+  var retorno = {
+    Status: err.status, 
+    Response: "", 
+    Mensagem:""
+  }
+  
+  if (err.status == 404) {
+    retorno = {Status:404, Response:"Pagina não localizada", Mensagem:"Não foi possível localizar o reurso chamado."}
+  }
+
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', { 
+    Title: 'MaxBots',
+    PathRoot: '',
+    Retorno: retorno
+      });
 });
 
 module.exports = app;
@@ -63,3 +74,7 @@ module.exports = app;
 // }
 
 // Thread1();
+
+// console.log(path.basename(__filename, path.extname(__filename)))
+// console.log(__dirname)
+// console.log(__filename)

@@ -1,11 +1,49 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+<!doctype html>
+<html lang="en">
+  <head>    
+    <% include ./../templates/header.ejs %>
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <body>      
+    <span id="A1B1"></span>
+    <span id="A1B2"></span>
+    <span id="A1B31"></span>
+    <span id="A1B32"></span>
+    <span id="A1B33"></span>
+    <span id="A1B34"></span>
+    <span id="A1B35"></span>
+    <span id="A1B36"></span>
+    <span id="A1B4"></span>
+    <span id="MSGIDLAST">-1</span>
+    <div class="blog-masthead">              
+      <div class="container">
+        <nav class="blog-nav">
+            <a class="blog-nav-item active" href="#">Inicio</a>
+            <a class="blog-nav-item" href="/api">API</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">           
+      <div class="blog-header">
+        <p class="lead blog-description">Web Service</p>
+        <div id="idmsgalert"></div>
+      </div>
+    
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+              <div class="blog-post">
+                <p>Solução e integração de sistemas e recursos http</p>
+                <hr>
+              <div class="blog-post">                      
+                  
+            </div><!-- /.row -->      
+        </div><!-- /.blog-main -->
+
+       
+      </div><!-- /.row -->
+    
+    </div>
+
+    <% include ./../templates/footer_body.ejs %>
   </body>
 </html>
